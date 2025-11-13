@@ -3,7 +3,8 @@ const stopEl = document.getElementById('stop');
 const resetEl = document.getElementById('reset');
 const timerEl = document.getElementById('timer');
 
-let interval
+let interval = null;
+
 let timeLeft = 1500;
 function updateTimer() {
     let minutes = Math.floor(timeLeft / 60);
@@ -14,6 +15,7 @@ function updateTimer() {
 }
 
 function startTimer() {
+    if (interval !== null) return;
     interval = setInterval(() => {
         timeLeft--;
         updateTimer();
